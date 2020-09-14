@@ -20,7 +20,9 @@ public class bookController {
 	private BookRepository repository;
 	
 	@Autowired
-	private CategoryRepository catrepository;
+	private CategoryRepository crepository;
+
+
 	
 	@RequestMapping(value= {"/", "/booklist"})
 	public String bookList(Model model) {
@@ -31,7 +33,7 @@ public class bookController {
 	@GetMapping("/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
-		model.addAttribute("categorys", catrepository.findAll());
+		model.addAttribute("categories", crepository.findAll());
 		return "addbook";
 	}
 	
@@ -50,7 +52,7 @@ public class bookController {
 	@RequestMapping(value="edit/{id}")
 	public String editBook(@PathVariable("id")Long bookId, Model model) {
 		model.addAttribute("book", repository.findById(bookId));
-		model.addAttribute("categories", catrepository.findAll());
+
 		return "editbook";
 	}
 }

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 @Entity
 public class Book {
 	@Id
@@ -16,8 +17,9 @@ public class Book {
 	private int price, year;
 	
 	@ManyToOne
-	@JoinColumn(name="categoryid")
+	@JoinColumn(name = "categoryid")
 	private Category category;
+
 	
 	public Book() {}
 		
@@ -32,6 +34,7 @@ public class Book {
 	public String getName() {
 		return name;
 	}
+
 	public Category getCategory() {
 		return category;
 	}
@@ -67,19 +70,28 @@ public class Book {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public Book(String name, String author, String isbn, int price, int year) {
+	public Book(String name, String author, String isbn, int price, int year, Category category) {
 		super();
 		this.name = name;
 		this.author = author;
 		this.isbn = isbn;
 		this.price = price;
 		this.year = year;
+		this.category = category;
+	}
+
+	public Book(String string, String string2, String string3, int i, int j) {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
+		if (this.category != null)
 		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", isbn=" + isbn + ", price=" + price
-				+ ", year=" + year + ", category=" + category + "]";
+				+ ", year=" + year + ", category=" + this.getCategory() + "]";
+		else
+		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", isbn=" + isbn + ", price=" + price
+						+ ", year=" + year + "]";
 	}
 
 	

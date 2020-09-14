@@ -24,10 +24,10 @@
 			<label for="year">Julkaisuvuosi</label>
 			<input type="text" id="year" th:field="*{year}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="category">Laji</label>
+		  	<label for="category">Laji</label>
 			<select id="category" th:field="*{category}" class="form-control">
-				<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
-			</select>
+				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+			</select>  
 			
 			<input type="submit" value="Save"></input>
 		</form>

@@ -16,9 +16,9 @@
 			<input type="text" th:field="*{price}" />
 			<input type="text" th:field="*{year}" />
 			<label for="category">Laji</label>
-			<select id="category" th:field="*{category}" class="form-control">
+	 		<select id="category" th:field="*{category}" class="form-control">
 				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
-			</select>
+			</select> 
 			<input type="submit" class="btn btn-success" value="Save"></input>
 		</form>
 	</div>
