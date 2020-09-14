@@ -70,19 +70,16 @@ public class Book {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public Book(String name, String author, String isbn, int price, int year, Category category) {
+	public Book(String name, String author, String isbn, int price, int year) {
 		super();
 		this.name = name;
 		this.author = author;
 		this.isbn = isbn;
 		this.price = price;
 		this.year = year;
-		this.category = category;
+
 	}
 
-	public Book(String string, String string2, String string3, int i, int j) {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public String toString() {

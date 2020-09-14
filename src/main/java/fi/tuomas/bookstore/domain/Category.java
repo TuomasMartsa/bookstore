@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Category {
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long categoryid;
 	private String name;
 	
@@ -53,14 +53,12 @@ public class Category {
 		return "Category [categoryid=" + categoryid + ", name=" + name +  "]";
 	}
 
-	public Category(Long categoryid, String name) {
+	public Category( String name) {
 		super();
-		this.categoryid = categoryid;
+		
 		this.name = name;
 	}
 
-	public Category(String string) {
-		// TODO Auto-generated constructor stub
-	}
+
 
 }
