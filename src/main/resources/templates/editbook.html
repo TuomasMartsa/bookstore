@@ -9,17 +9,31 @@
 	<h1>Muokkaa kirjaa</h1>
 	<div>
 		<form th:object="${book}" th:action="@{../save}" action="#" method="post" class="form-inline">
-			<input type="hidden" th:field="*{id}" class="form-control" />
-			<input type="text" th:field="*{name}" />
-			<input type="text" th:field="*{author}" />
-			<input type="text" th:field="*{isbn}" />
-			<input type="text" th:field="*{price}" />
-			<input type="text" th:field="*{year}" />
-			<label for="category">Laji</label>
-	 		<select id="category" th:field="*{category}" class="form-control">
-				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
-			</select> 
-			<input type="submit" class="btn btn-success" value="Save"></input>
+			<input type="hidden" id ="id" th:field="*{id}" />
+			<label for ="name">Nimi</label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for ="author">Kirjailija</label>
+			<input type="text" id="author" th:field="*{author}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for ="isbn">ISBN</label>
+			<input type="text" id="isbn" th:field="*{isbn}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for ="year">Vuosi</label>
+			<input type="text" id="year" th:field="*{year}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for ="price">Hinta</label>
+			<input type="text" id="price" th:field="*{price}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="category">Kategoria</label>
+			<select id="category" th:field="*{category}" class="form-control">
+				<option th:each="category: ${categories}" 
+				th:value=${category.categoryid} 
+				th:text=${category.name}></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save"></input>
+
 		</form>
 	</div>
 </body>

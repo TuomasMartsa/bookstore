@@ -28,11 +28,10 @@ public class BookstoreApplication {
 
 			crepository.save(new Category("jännitys"));
 			crepository.save(new Category("viihde"));
+			crepository.save(new Category("romanssi"));
 			
-			repository.save(new Book("Matikka", "Kirjoittaja", "ij4456-5", 20, 2020));
-			repository.save(new Book("Äikkä", "Kirjoittaja", "ij4456-5", 20, 2020));
-			
-			
+			repository.save(new Book("Matikka", "Ope", "IH456-4565", 20, 1984, crepository.findByname("jännitys").get(0)));
+			repository.save(new Book("Äikkä", "Masa", "LK467-845", 10, 2020, crepository.findByname("viihde").get(0)));
 			
 			
 			log.info("fetch all books");

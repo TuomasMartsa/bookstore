@@ -21,8 +21,6 @@ public class Book {
 	private Category category;
 
 	
-	public Book() {}
-		
 	public long getId() {
 		return id;
 	}
@@ -70,16 +68,20 @@ public class Book {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public Book(String name, String author, String isbn, int price, int year) {
+	public Book(String name, String author, String isbn, int price, int year, Category category) {
 		super();
 		this.name = name;
 		this.author = author;
 		this.isbn = isbn;
 		this.price = price;
 		this.year = year;
+		this.category= category;
 
 	}
 
+	public Book() {
+
+	}
 
 	@Override
 	public String toString() {
