@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Booklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> 
+</head>
+<body>
+	<div th:if="${param.error}">
+		Väärä käyttäjä tai salasana	
+	</div>
+	<div th:if="${param.logout}">
+            Kirjaudu uudelleen
+    </div>
+       
+	<form th:action="@{/login}" method="post">
+		<div><label>Tunnus: <input type="text" name ="username"/></label>
+		</div>
+		<div><label>Salasana: <input type="text" name ="password"/></label>
+		</div>
+		<div><input type="submit" value="Sign In"/></div>
+	</form>
+</body>
+</html>
