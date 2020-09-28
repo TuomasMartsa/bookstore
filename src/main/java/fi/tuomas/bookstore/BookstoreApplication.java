@@ -11,6 +11,8 @@ import fi.tuomas.bookstore.domain.Book;
 import fi.tuomas.bookstore.domain.BookRepository;
 import fi.tuomas.bookstore.domain.Category;
 import fi.tuomas.bookstore.domain.CategoryRepository;
+import fi.tuomas.bookstore.domain.User;
+import fi.tuomas.bookstore.domain.UserRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -23,7 +25,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository) {
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args)->{
 
 			crepository.save(new Category("jännitys"));
@@ -32,6 +34,11 @@ public class BookstoreApplication {
 			
 			repository.save(new Book("Matikka", "Ope", "IH456-4565", 20, 1984, crepository.findByname("jännitys").get(0)));
 			repository.save(new Book("Äikkä", "Masa", "LK467-845", 10, 2020, crepository.findByname("viihde").get(0)));
+			
+			User user1 = new User("user", "$2a$10$7nK6ywnmFn0weNIKqu5yGeclT2Ov1R6hp21OS0DelFe46N45CainO", "USER");
+			User user2 = new User("admin", "$2a$10$b/.SBOQcrMH0mqvfmdcLHO1ra76iCDaMfinkG4VZb1dTTMy2tmrFO", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
 			
 			
 			log.info("fetch all books");

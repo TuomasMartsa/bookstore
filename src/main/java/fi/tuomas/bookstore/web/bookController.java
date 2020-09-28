@@ -3,6 +3,7 @@ package fi.tuomas.bookstore.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,6 +65,7 @@ public class bookController {
 	}
 	
 	@GetMapping(value= "/delete/{id}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteBook(@PathVariable("id")Long bookId, Model model) {
 		repository.deleteById(bookId);
 		return "redirect:../booklist";
